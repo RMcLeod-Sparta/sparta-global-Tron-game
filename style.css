@@ -1,0 +1,13 @@
+h1{
+  color: orange;
+  text-align: center;
+  margin: auto;
+}
+.area{
+  width: 500px;
+  height: 500px;
+  background-color: black;
+  margin: auto;
+  text-align: center;
+  background-position: 50% 50%;
+}
