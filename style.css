@@ -35,3 +35,6 @@ table{
 .wall{
   background-color: blue;
 }
+.blank{
+  border-color: white;
+}
