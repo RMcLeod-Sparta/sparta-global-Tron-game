@@ -1,13 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  }
+
 h1{
   color: orange;
-  text-align: center;
-  margin: auto;
+  /* text-align: center; */
+  /* margin: auto; */
 }
-.area{
+main{
   width: 500px;
   height: 500px;
   background-color: black;
-  margin: auto;
-  text-align: center;
-  background-position: 50% 50%;
+  position: absolute;
+  z-index:-1;
+  display: block;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+.bike1{
+  background-color: lightblue;
+}
+.bike2{
+  background-color: orange;
+}
+
+td{
+  width: 5px;
+  height: 5px;
+}
+table{
+  border-spacing: 0px;
+}
+.wall{
+  background-color: blue;
 }
