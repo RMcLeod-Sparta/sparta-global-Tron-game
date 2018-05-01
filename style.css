@@ -24,8 +24,11 @@ main{
 .bike2{
   background-color: orange;
 }
+.bikeS{
+  background-color: yellow;
+}
 .trail{
-  background-color: red;
+  background-color: lightblue;
 }
 
 td{

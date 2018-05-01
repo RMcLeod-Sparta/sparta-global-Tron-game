@@ -3,24 +3,26 @@ var p1, p2;
 var players = [p1, p2];
 var bikeX = 5;
 var bikeY = 25;
-var bikeX2 = 45;
-var bikeY2 = 25;
+var bikeX2;
+var bikeY2;
 var height = 50;
 var width  = 50;
 var trailX = [bikeX];
 var trailY = [bikeY];
-var trailX2 = [bikeX2];
-var trailY2 = [bikeY2];
+// var trailX2 = [bikeX2];
+// var trailY2 = [bikeY2];
 var running = false;
 var gameOver = false;
 var direction = 2; // up = 0, down = -1, left = 1, right = 2;
 var direction2 = 1;
 var int;
 var interval = 50;
-setInterval(console.log("EY"), 100);
-//
-// if($(".bike1").collision(".wall"))
-//   console.log("col");
+var length = 0;
+var lagUp = 0;
+var lagSide = 0;
+
+console.log(trailX);
+console.log(trailY);
 
 
 function get(x,y){
@@ -28,12 +30,17 @@ function get(x,y){
 }
 
 function set(x, y, value){
-    get(x,y).setAttribute("class", value);
+  get(x,y).setAttribute("class", value);
+}
+function setB(x, y, value){
+  get(x,y).classList.add(value);
 }
 
 function createPlayer(){
-  return set(bikeX, bikeY, "bike1");
-  return set(bikeX2, bikeY2, "bike2");
+  return setB(bikeX, bikeY, "bike1");
+}
+function createTrail(){
+  return set(trailX, trailY, "trail");
 }
 
 function run(){
@@ -46,41 +53,38 @@ function run(){
 
 function update (){
   updateTrail();
-  set(trailX[length], trailY[length], "trail");
-  if(direction == 0)
+  set((trailX[length]+lagSide), (trailY[length]+lagUp), "trail");
+  if(direction == 0){ // up = 0, down = -1, left = 1, right = 2;
+    lagUp=1;
+    lagSide=0;
     bikeY--;
-  else if(direction == -1)
+  }
+  else if(direction == -1){
+    lagUp=-1;
+    lagSide=0;
     bikeY++;
-  else if(direction == 1)
+  }
+  else if(direction == 1){
+    lagUp=0;
+    lagSide=1;
     bikeX--;
-  else if(direction == 2)
+  }
+  else if(direction == 2){
+    lagUp=0;
+    lagSide=-1;
     bikeX++;
-  set(bikeX, bikeY, "bike1");
+  }
 
+   setB(bikeX, bikeY, "bike1");
 
+ var overlaps = ($(".bike1").collision( ".trail"));
+ if(overlaps.length > 0){
+   document.location.reload();
+ }
 
-  if($("th").hasClass("bike1")){
+  if(bikeX == 0 || bikeX == width-1 || bikeY == 0 || bikeY == height-1){
     document.location.reload();
   }
-
-  if($(".trail").collision(".bike1")){
-    console.log("yeah");
-  }
-
-  // if(bikeX == 0 || bikeX == width-1 || bikeY == 0 || bikeY == height-1){
-  //   document.location.reload();
-  // }
-
-  // set(trailX2[length], trailY2[length], "bike2")
-  // if(direction2 == 0)
-  //   bikeY2--;
-  // else if(direction2 == -1)
-  //   bikeY2++;
-  // else if(direction2 == 1)
-  //   bikeX2--;
-  // else if(direction2 == 2)
-  //   bikeX2++;
-  // set(bikeX2, bikeY2, "bike2")
 
   }
 
@@ -118,7 +122,7 @@ function createGrid(){
      document.write("<tr>");
      for(var x = 0; x < width; x++){
        if(x == 0 || x == width-1 || y == 0 || y == height-1){
-         document.write("<th class='wall' id='"+ x +"-"+ y +"'></th>");
+         document.write("<td class='wall' id='"+ x +"-"+ y +"'></th>");
        }else{
          document.write("<td class='blank' id='"+ x +"-"+ y +"'></td>");
        }
