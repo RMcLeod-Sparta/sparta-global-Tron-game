@@ -24,8 +24,15 @@ main{
 .bike2{
   background-color: orange;
 }
+.trail{
+  background-color: red;
+}
 
 td{
+  width: 5px;
+  height: 5px;
+}
+th{
   width: 5px;
   height: 5px;
 }
