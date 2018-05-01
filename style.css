@@ -4,9 +4,13 @@
   }
 
 h1{
-  color: orange;
-  /* text-align: center; */
-  /* margin: auto; */
+  color: red;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  margin-left: 25%;
+  margin-top: 5%;
+  text-align: center;
 }
 main{
   width: 500px;
@@ -24,11 +28,11 @@ main{
 .bike2{
   background-color: orange;
 }
-.bikeS{
-  background-color: yellow;
-}
 .trail{
   background-color: lightblue;
+}
+.trail2{
+  background-color: orange;
 }
 
 td{
@@ -46,5 +50,4 @@ table{
   background-color: blue;
 }
 .blank{
-  border-color: white;
 }

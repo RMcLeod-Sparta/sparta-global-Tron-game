@@ -1,16 +1,16 @@
 //player 1 and 2
 var p1, p2;
 var players = [p1, p2];
-var bikeX = 5;
-var bikeY = 25;
-var bikeX2;
-var bikeY2;
-var height = 50;
-var width  = 50;
+var bikeX = 6;
+var bikeY = 50;
+var bikeX2 = 94;
+var bikeY2 = 50;
+var height = 100;
+var width  = 100;
 var trailX = [bikeX];
 var trailY = [bikeY];
-// var trailX2 = [bikeX2];
-// var trailY2 = [bikeY2];
+var trailX2 = [bikeX2];
+var trailY2 = [bikeY2];
 var running = false;
 var gameOver = false;
 var direction = 2; // up = 0, down = -1, left = 1, right = 2;
@@ -18,12 +18,11 @@ var direction2 = 1;
 var int;
 var interval = 50;
 var length = 0;
+var length2 = 0;
 var lagUp = 0;
 var lagSide = 0;
-
-console.log(trailX);
-console.log(trailY);
-
+var lagUp2 = 0;
+var lagSide2 = 0;
 
 function get(x,y){
   return document.getElementById(x+"-"+y);
@@ -46,6 +45,7 @@ function createTrail(){
 function run(){
   createGrid();
   createPlayer();
+  createTrail();
   int = setInterval(gameLoop, interval);
   console.log("begin");
   // player2 = createPlayer(95,50,"bike2");
@@ -53,6 +53,39 @@ function run(){
 
 function update (){
   updateTrail();
+
+    player1();
+    player2();
+
+ var p1overlaps = ($(".bike1").collision( ".trail")) && ($(".bike1").collision( ".trail2"));
+ if(p1overlaps.length > 0){
+   document.getElementById("result").innerHTML = "Orange Wins!";
+   running = false;
+ }
+
+ var p2overlaps = ($(".bike2").collision( ".trail")) && ($(".bike2").collision( ".trail"));
+ if(p2overlaps.length > 0){
+   document.getElementById("result").innerHTML = "Blue Wins!";
+   running = false;
+ }
+
+ var draw = ($(".bike1").collision( ".bike2"))
+ if(draw.length > 0){
+   document.getElementById("result").innerHTML = "It's A Draw!";
+   running = false;
+ }
+
+  if(bikeX == 0 || bikeX == width-1 || bikeY == 0 || bikeY == height-1){
+    document.getElementById("result").innerHTML = "Orange Wins!";
+    running = false;
+  }else if(bikeX2 == 0 || bikeX2 == width-1 || bikeY2 == 0 || bikeY2 == height-1){
+      document.getElementById("result").innerHTML = "Blue Wins!";
+      running = false;
+  }
+
+  }
+
+function player1(){
   set((trailX[length]+lagSide), (trailY[length]+lagUp), "trail");
   if(direction == 0){ // up = 0, down = -1, left = 1, right = 2;
     lagUp=1;
@@ -74,20 +107,33 @@ function update (){
     lagSide=-1;
     bikeX++;
   }
-
    setB(bikeX, bikeY, "bike1");
+}
 
- var overlaps = ($(".bike1").collision( ".trail"));
- if(overlaps.length > 0){
-   document.location.reload();
- }
-
-  if(bikeX == 0 || bikeX == width-1 || bikeY == 0 || bikeY == height-1){
-    document.location.reload();
+function player2(){
+  set((trailX2[length2]+lagSide2), (trailY2[length2]+lagUp2), "trail2");
+  if(direction2 == 0){ // up = 0, down = -1, left = 1, right = 2;
+    lagUp2=1;
+    lagSide2=0;
+    bikeY2--;
   }
-
+  else if(direction2 == -1){
+    lagUp2=-1;
+    lagSide2=0;
+    bikeY2++;
   }
-
+  else if(direction2 == 1){
+    lagUp2=0;
+    lagSide2=1;
+    bikeX2--;
+  }
+  else if(direction2 == 2){
+    lagUp2=0;
+    lagSide2=-1;
+    bikeX2++;
+  }
+   setB(bikeX2, bikeY2, "bike2");
+}
 
 function updateTrail(){
   for (var i = length; i > 0; i--) {
