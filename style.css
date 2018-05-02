@@ -21,6 +21,11 @@ h2{
 .oControls{
   color: darkorange;
 }
+.start{
+  text-decoration:overline;
+  font-weight: bold;
+  margin-right: 150px;
+}
 main{
   width: 500px;
   height: 500px;
@@ -37,21 +42,30 @@ main{
 .bike2{
   background-color: orange;
 }
+.bike3{
+  background-color: red;
+}
+.bike4{
+  background-color: purple;
+}
 .trail{
   background-color: lightblue;
 }
 .trail2{
   background-color: orange;
 }
+.trail3{
+  background-color: red;
+}
+.trail4{
+  background-color: purple;
+}
 
 td{
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
 }
-th{
-  width: 5px;
-  height: 5px;
-}
+
 table{
   border-spacing: 0px;
 }
