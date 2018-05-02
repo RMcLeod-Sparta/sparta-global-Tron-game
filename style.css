@@ -5,36 +5,40 @@
 
 h1{
   color: red;
-  padding: 0;
-  margin: 0;
   position: absolute;
-  margin-left: 25%;
-  margin-top: 5%;
-  text-align: center;
+  margin:auto;
+  text-align: left;
 }
 h2{
   text-align: right;
 }
 .bControls{
   color: skyblue;
+  text-align: center;
 }
 .oControls{
   color: darkorange;
+  text-align: center;
 }
 .start{
   text-decoration:overline;
   font-weight: bold;
-  margin-right: 150px;
+  text-align: center;
+}
+.nort{
+  margin: auto;
+  display: block;
+  text-align: center;
 }
 main{
   width: 500px;
   height: 500px;
   background-color: black;
-  position: absolute;
+  position:static;
   z-index:-1;
   display: block;
-  margin-left: 10%;
-  margin-top: 10%;
+  margin: auto;
+  margin-top: 0%;
 }
 .bike1{
   background-color: lightblue;

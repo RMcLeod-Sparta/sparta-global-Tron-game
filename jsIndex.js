@@ -60,8 +60,6 @@ function createTrail(){
 function run(){
   createGrid();
   int = setInterval(gameLoop, interval);
-  //console.log("begin");
-  // player2 = createPlayer(95,50,"bike2");
 }
 
 function update (){
@@ -72,8 +70,12 @@ function update (){
   if(p2Dead == false){
     player2();
   }
-  //  player3();
-  //  player4();
+  // if(p3Dead == false){
+  //   player3();
+  // }
+  // if(p4Dead == false){
+  //   player4();
+  // }
 
  var p1overlaps = ($(".bike1").collision(".trail"));
  if(p1overlaps.length > 0){
@@ -81,6 +83,7 @@ function update (){
    p1Dead = true;
    $("td").removeClass("trail")
    $("td").removeClass("bike1")
+   running = false;
  }
  var p1overlaps2 = ($(".bike1").collision( ".trail2"));
  if(p1overlaps2.length > 0){
@@ -88,6 +91,7 @@ function update (){
    p1Dead = true;
    $("td").removeClass("trail");
    $("td").removeClass("bike1");
+   running = false;
  }
 
  var p2overlaps = ($(".bike2").collision(".trail"));
@@ -96,6 +100,7 @@ function update (){
    p2Dead = true;
    $("td").removeClass("trail2");
    $("td").removeClass("bike2");
+   running = false;
  }
  var p2overlaps2 = ($(".bike2").collision( ".trail2"));
  if(p2overlaps2.length > 0){
@@ -103,6 +108,7 @@ function update (){
    p2Dead = true;
    $("td").removeClass("trail2");
    $("td").removeClass("bike2");
+   running = false;
  }
 
  var draw = ($(".bike1").collision( ".bike2"))
@@ -119,36 +125,55 @@ function update (){
  var draw2 = ($(".bike1").collision( ".bike3"))
  if(draw2.length > 0){
    document.getElementById("result").innerHTML = "It's A Draw!";
-   $("td").removeClass(".trail");
-   $("td").removeClass(".trail3");
+   p1Dead = true;
+   p3Dead = true;
+   $("td").removeClass("trail");
+   $("td").removeClass("trail3");
+   $("td").removeClass("bike1");
+   $("td").removeClass("bike3");
 //   running = false;
  }
  var draw3 = ($(".bike1").collision( ".bike4"))
  if(draw3.length > 0){
    document.getElementById("result").innerHTML = "It's A Draw!";
-   $("td").removeClass(".trail");
-   $("td").removeClass(".trail4");
+   p1Dead = true;
+   p4Dead = true;
+   $("td").removeClass("trail");
+   $("td").removeClass("trail4");
+   $("td").removeClass("bike1");
+   $("td").removeClass("bike4");
 //   running = false;
  }
  var draw4 = ($(".bike2").collision( ".bike3"))
  if(draw4.length > 0){
    document.getElementById("result").innerHTML = "It's A Draw!";
-   $("td").removeClass(".trail2");
-   $("td").removeClass(".trail3");
+   p2Dead = true;
+   p3Dead = true;
+   $("td").removeClass("trail2");
+   $("td").removeClass("trail3");
+   $("td").removeClass("bike2");
+   $("td").removeClass("bike3");
 //   running = false;
  }
  var draw5 = ($(".bike2").collision( ".bike4"))
  if(draw5.length > 0){
    document.getElementById("result").innerHTML = "It's A Draw!";
-   $("td").removeClass(".trail2");
-   $("td").removeClass(".trail4");
-  // running = false;
+   p2Dead = true;
+   p4Dead = true;
+   $("td").removeClass("trail2");
+   $("td").removeClass("trail4");
+   $("td").removeClass("bike2");
+   $("td").removeClass("bike4");
  }
  var draw6 = ($(".bike3").collision( ".bike4"))
  if(draw6.length > 0){
    document.getElementById("result").innerHTML = "It's A Draw!";
-   $("td").removeClass(".trail3");
-   $("td").removeClass(".trail4");
+   p3Dead = true;
+   p4Dead = true;
+   $("td").removeClass("trail3");
+   $("td").removeClass("trail4");
+   $("td").removeClass("bike3");
+   $("td").removeClass("bike4");
    //running = false;
  }
 
