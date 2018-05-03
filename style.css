@@ -2,20 +2,39 @@
   padding: 0;
   margin: 0;
   }
-
 h1{
-  color: white;
+  margin-left: 50px;
   text-align: center;
   font-family: sans-serif;
+  font-variant-caps: all-small-caps;
+  position: absolute;
+  font-size: 44px;
 }
 h2{
   text-align: center;
+}
+main{
+  width: 500px;
+  height: 500px;
+  background-color: black;
+  position:static;
+  z-index:-1;
+  display: block;
+  margin: auto;
+  margin-top: 0%;
+}
+td{
+  width: 10px;
+  height: 10px;
+}
+table{
+  border-spacing: 0px;
 }
 .instructions{
   text-align: right;
   margin-right: 10%;
   font-family: "Arial", Times, serif;
-  color: white;
+  color: cyan;
   font-size: 35px;
 }
 .downArrow{
@@ -30,28 +49,37 @@ h2{
   color: deepskyblue;
   text-align: center;
   font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
 }
 .oControls{
   color: darkorange;
   text-align: center;
   font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
 }
 .rControls{
   color: red;
   text-align: center;
   font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
 }
 .pControls{
   color: purple;
   text-align: center;
   font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
 }
 .start{
-  text-decoration:overline;
   font-weight: bold;
   text-align: center;
-  color: Seashell;
+  color: white;
   font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
 }
 .nort{
   margin: auto;
@@ -75,16 +103,6 @@ h2{
   padding: 0;
   position: absolute;
   transform: rotate(180deg);
-}
-main{
-  width: 500px;
-  height: 500px;
-  background-color: black;
-  position:static;
-  z-index:-1;
-  display: block;
-  margin: auto;
-  margin-top: 0%;
 }
 .bike1{
   background-color: lightblue;
@@ -110,22 +128,11 @@ main{
 .trail4{
   background-color: purple;
 }
-
-td{
-  width: 10px;
-  height: 10px;
-}
-
-table{
-  border-spacing: 0px;
-}
 .wall{
   background-color: blue;
 }
 .blank{
-
 }
-
 @media screen and (max-width: 1090px){
 .downArrow{
   display: none;
