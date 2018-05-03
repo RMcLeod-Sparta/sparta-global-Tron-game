@@ -1,13 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+  }
 h1{
-  color: orange;
+  margin-left: 50px;
   text-align: center;
-  margin: auto;
+  font-family: sans-serif;
+  font-variant-caps: all-small-caps;
+  position: absolute;
+  font-size: 44px;
 }
-.area{
+h2{
+  text-align: center;
+}
+main{
   width: 500px;
   height: 500px;
   background-color: black;
+  position:static;
+  z-index:-1;
+  display: block;
   margin: auto;
+  margin-top: 0%;
+}
+td{
+  width: 10px;
+  height: 10px;
+}
+table{
+  border-spacing: 0px;
+}
+.instructions{
+  text-align: right;
+  margin-right: 10%;
+  font-family: "Arial", Times, serif;
+  color: cyan;
+  font-size: 35px;
+}
+.downArrow{
+  float: right;
+  width: 200px;
+  height: 100px;
+  margin-right: 8%;
+  margin-top: 65px;
+  transform: rotate(90deg);
+}
+.bControls{
+  color: deepskyblue;
   text-align: center;
-  background-position: 50% 50%;
+  font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
+}
+.oControls{
+  color: darkorange;
+  text-align: center;
+  font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
+}
+.rControls{
+  color: red;
+  text-align: center;
+  font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
+}
+.pControls{
+  color: purple;
+  text-align: center;
+  font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
+}
+.start{
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
+}
+.nort{
+  margin: auto;
+  display: block;
+  border-style: double;
+  border-color: hotpink;
+}
+.background1{
+  width: 100%;
+  height: 100%;
+  z-index:-2;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+.background2{
+  width: 100%;
+  height: 100%;
+  z-index:-2;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  transform: rotate(180deg);
+}
+.bike1{
+  background-color: lightblue;
+}
+.bike2{
+  background-color: orange;
+}
+.bike3{
+  background-color: red;
+}
+.bike4{
+  background-color: purple;
+}
+.trail{
+  background-color: lightblue;
+}
+.trail2{
+  background-color: orange;
+}
+.trail3{
+  background-color: red;
+}
+.trail4{
+  background-color: purple;
+}
+.wall{
+  background-color: blue;
+}
+.blank{
+}
+@media screen and (max-width: 1090px){
+.downArrow{
+  display: none;
+}
+.instructions{
+  display: none;
+}
 }
