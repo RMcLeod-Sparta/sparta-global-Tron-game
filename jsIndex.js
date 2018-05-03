@@ -83,7 +83,6 @@ function update (){
    p1Dead = true;
    $("td").removeClass("trail")
    $("td").removeClass("bike1")
-   running = false;
  }
  var p1overlaps2 = ($(".bike1").collision( ".trail2"));
  if(p1overlaps2.length > 0){
@@ -91,7 +90,6 @@ function update (){
    p1Dead = true;
    $("td").removeClass("trail");
    $("td").removeClass("bike1");
-   running = false;
  }
 
  var p2overlaps = ($(".bike2").collision(".trail"));
@@ -100,7 +98,6 @@ function update (){
    p2Dead = true;
    $("td").removeClass("trail2");
    $("td").removeClass("bike2");
-   running = false;
  }
  var p2overlaps2 = ($(".bike2").collision( ".trail2"));
  if(p2overlaps2.length > 0){
@@ -108,7 +105,6 @@ function update (){
    p2Dead = true;
    $("td").removeClass("trail2");
    $("td").removeClass("bike2");
-   running = false;
  }
 
  var draw = ($(".bike1").collision( ".bike2"))
@@ -179,10 +175,14 @@ function update (){
 
   if(bikeX == 0 || bikeX == width-1 || bikeY == 0 || bikeY == height-1){
     document.getElementById("result").innerHTML = "Orange Wins!";
-    running = false;
+    p1Dead = true;
+    $("td").removeClass("trail")
+    $("td").removeClass("bike1")
   }else if(bikeX2 == 0 || bikeX2 == width-1 || bikeY2 == 0 || bikeY2 == height-1){
-      document.getElementById("result").innerHTML = "Blue Wins!";
-    running = false;
+    document.getElementById("result").innerHTML = "Blue Wins!";
+    p2Dead = true;
+    $("td").removeClass("trail2");
+    $("td").removeClass("bike2");
   }
 
   }
@@ -190,23 +190,23 @@ function update (){
 function player1(){
   set((trailX[length]+lagSide), (trailY[length]+lagUp), "trail");
   if(direction == 0){ // up = 0, down = -1, left = 1, right = 2;
-    lagUp=1;
-    lagSide=0;
+    // lagUp=1;
+    // lagSide=0;
     bikeY--;
   }
   else if(direction == -1){
-    lagUp=-1;
-    lagSide=0;
+    // lagUp=-1;
+    // lagSide=0;
     bikeY++;
   }
   else if(direction == 1){
-    lagUp=0;
-    lagSide=1;
+    // lagUp=0;
+    // lagSide=1;
     bikeX--;
   }
   else if(direction == 2){
-    lagUp=0;
-    lagSide=-1;
+    // lagUp=0;
+    // lagSide=-1;
     bikeX++;
   }
    setB(bikeX, bikeY, "bike1");
@@ -215,23 +215,23 @@ function player1(){
 function player2(){
   set((trailX2[length2]+lagSide2), (trailY2[length2]+lagUp2), "trail2");
   if(direction2 == 0){ // up = 0, down = -1, left = 1, right = 2;
-    lagUp2=1;
-    lagSide2=0;
+    // lagUp2=1;
+    // lagSide2=0;
     bikeY2--;
   }
   else if(direction2 == -1){
-    lagUp2=-1;
-    lagSide2=0;
+    // lagUp2=-1;
+    // lagSide2=0;
     bikeY2++;
   }
   else if(direction2 == 1){
-    lagUp2=0;
-    lagSide2=1;
+    // lagUp2=0;
+    // lagSide2=1;
     bikeX2--;
   }
   else if(direction2 == 2){
-    lagUp2=0;
-    lagSide2=-1;
+    // lagUp2=0;
+    // lagSide2=-1;
     bikeX2++;
   }
    setB(bikeX2, bikeY2, "bike2");
@@ -409,8 +409,15 @@ window.addEventListener("keypress", function key(){
   //  console.log("right2");
     direction4 = 2;
   }
-  else if(key == 82 || key == 114){
-    document.location.reload();
+  else if((key == 82 || key == 114) && p1Dead == true && p2Dead == true){
+    p1Dead = false;
+    p2Dead = false;
+    bikeX = 6;
+    bikeY = 25;
+    bikeX2 = 44;
+    bikeY2 = 25;
+    direction = 2;
+    direction2 = 1;
   }
 
   if(!running){
