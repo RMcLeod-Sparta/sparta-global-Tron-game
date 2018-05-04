@@ -1,4 +1,6 @@
 # Nort
+##Press Any Key to Start and P to Pause .Hit 2, 3 or 4 to choose the number of players .Nort is played by using your 4 directional keys to navigate the grid. You lose by colliding with any trail left by any player as well as the surrounding wall. The winner is the last one left standing.
+
 <ol>
   <li>I first researched how to make a tron style game but came up with not a
   lot of examples that did not use the canvas. So I decided to use a snake game
