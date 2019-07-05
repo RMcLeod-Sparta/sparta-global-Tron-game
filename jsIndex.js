@@ -255,14 +255,14 @@ function update (){
   }else if(p1Dead == true && p2Dead == true && p4Dead == true && p3Dead == false){
     document.getElementById("result").innerHTML = "The Winner Is: Red";
     document.getElementById("result").style.color = "red";
-    blueScore++;
+    redScore++;
     updateRedScore();
     running = false;
     gameOver = true;
   }else if(p1Dead == true && p2Dead == true && p3Dead == true && p4Dead == false){
     document.getElementById("result").innerHTML = "The Winner Is: Purple";
     document.getElementById("result").style.color = "purple";
-    blueScore++;
+    purpleScore++;
     updatePurpleScore();
     running = false;
     gameOver = true;
