@@ -18,7 +18,6 @@ main{
   height: 500px;
   background-color: black;
   position:static;
-  z-index:-1;
   display: block;
   margin: auto;
   margin-top: 0%;
@@ -31,55 +30,80 @@ table{
   border-spacing: 0px;
 }
 .instructions{
-  text-align: right;
-  margin-right: 10%;
   font-family: "Arial", Times, serif;
   color: cyan;
   font-size: 35px;
 }
 .downArrow{
-  float: right;
-  width: 200px;
-  height: 100px;
-  margin-right: 8%;
-  margin-top: 65px;
+  width: 40px;
+  height: 20px;
   transform: rotate(90deg);
+  position: absolute;
+  margin-top: 15px;
 }
 .bControls{
   color: deepskyblue;
-  text-align: center;
   font-size: 35px;
   font-family:sans-serif;
   font-variant-caps: all-small-caps;
+}
+.bScore{
+  float: left;
+  color: deepskyblue;
+  font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
+  margin-left: 200px;
 }
 .oControls{
   color: darkorange;
-  text-align: center;
   font-size: 35px;
   font-family:sans-serif;
   font-variant-caps: all-small-caps;
+}
+.oScore{
+  float:right;
+  color: darkorange;
+  font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
+  margin-right: 200px;
 }
 .rControls{
   color: red;
-  text-align: center;
   font-size: 35px;
   font-family:sans-serif;
   font-variant-caps: all-small-caps;
+}
+.rScore{
+  float:left;
+  color: red;
+  font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
+  margin-left: 200px;
 }
 .pControls{
   color: purple;
-  text-align: center;
   font-size: 35px;
   font-family:sans-serif;
   font-variant-caps: all-small-caps;
 }
-.start{
-  font-weight: bold;
-  text-align: center;
-  color: white;
+.pScore{
+  float:right;
+  color: purple;
   font-size: 35px;
   font-family:sans-serif;
   font-variant-caps: all-small-caps;
+  margin-right: 200px;
+}
+.start{
+  font-weight: bold;
+  color: yellow;
+  font-size: 35px;
+  font-family:sans-serif;
+  font-variant-caps: all-small-caps;
+
 }
 .nort{
   margin: auto;

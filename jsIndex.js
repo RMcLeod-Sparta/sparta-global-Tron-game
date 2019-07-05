@@ -32,7 +32,23 @@ var p3Dead = false;
 var p4Dead = false;
 var propRest = 0;
 var gameMusic = new Audio("GameMusic.mp3");
+var blueScore = orangeScore = redScore = purpleScore = 0;
 
+function updateBlueScore() {
+  document.getElementById("bScore").innerHTML = "blue score: " + blueScore;
+}
+
+function updateOrangeScore() {
+  document.getElementById("oScore").innerHTML = "orange score: " + orangeScore;
+}
+
+function updateRedScore() {
+  document.getElementById("rScore").innerHTML = "red score: " + redScore;
+}
+
+function updatePurpleScore() {
+  document.getElementById("pScore").innerHTML = "purple score: " + purpleScore;
+}
 
 function get(x,y){
   return document.getElementById(x+"-"+y);
@@ -225,23 +241,36 @@ function update (){
   if(p2Dead == true && p3Dead == true && p4Dead == true && p1Dead == false){
     document.getElementById("result").innerHTML = "The Winner Is: Blue";
     document.getElementById("result").style.color = "deepskyblue";
+    blueScore++;
+    updateBlueScore();
     running = false;
+    gameOver = true;
   }else if(p1Dead == true && p3Dead == true && p4Dead == true && p2Dead == false){
     document.getElementById("result").innerHTML = "The Winner Is: Orange";
     document.getElementById("result").style.color = "darkorange";
+    orangeScore++;
+    updateOrangeScore();
     running = false;
+    gameOver = true;
   }else if(p1Dead == true && p2Dead == true && p4Dead == true && p3Dead == false){
     document.getElementById("result").innerHTML = "The Winner Is: Red";
     document.getElementById("result").style.color = "red";
+    blueScore++;
+    updateRedScore();
     running = false;
+    gameOver = true;
   }else if(p1Dead == true && p2Dead == true && p3Dead == true && p4Dead == false){
     document.getElementById("result").innerHTML = "The Winner Is: Purple";
     document.getElementById("result").style.color = "purple";
+    blueScore++;
+    updatePurpleScore();
     running = false;
+    gameOver = true;
   }else if(p1Dead == true && p2Dead == true && p3Dead == true && p4Dead == true){
     document.getElementById("result").innerHTML = "It's A Draw";
     document.getElementById("result").style.color = "yellow";
     running = false;
+    gameOver = true;
   }else{
     document.getElementById("result").innerHTML = "";
   }
@@ -369,78 +398,82 @@ function createGrid(){
 
 window.addEventListener("keypress", function key(){
   var key = event.keyCode;
-  if(direction != -1 && (key == 119 || key == 87)){
+  if(direction != -1 && (key == 119 || key == 87) && p1Dead == false){
     direction = 0;
   }
-  else if(direction != 0 && (key == 115 || key == 83)){
+  else if(direction != 0 && (key == 115 || key == 83) && p1Dead == false){
     direction = -1;
   }
-  else if(direction != 2 && (key == 97 || key == 65)){
+  else if(direction != 2 && (key == 97 || key == 65) && p1Dead == false){
     direction = 1;
   }
-  else if(direction != 1 && (key == 100 || key == 68)){
+  else if(direction != 1 && (key == 100 || key == 68) && p1Dead == false){
     direction = 2;
   }
-  else if(direction3 != -1 && (key == 84 || key == 116)){
+  else if(direction3 != -1 && (key == 84 || key == 116) && p3Dead == false){
     direction3 = 0;
   }
-  else if(direction3 != 0 && (key == 71 || key == 103)){
+  else if(direction3 != 0 && (key == 71 || key == 103) && p3Dead == false){
     direction3 = -1;
   }
-  else if(direction3 != 2 && (key == 70 || key == 102)){
+  else if(direction3 != 2 && (key == 70 || key == 102) && p3Dead == false){
     direction3 = 1;
   }
-  else if(direction3 != 1 && (key == 72 || key == 104)){
+  else if(direction3 != 1 && (key == 72 || key == 104) && p3Dead == false){
     direction3 = 2;
   }
-  else if(direction2 != -1 && (key == 105 || key == 73)){
+  else if(direction2 != -1 && (key == 105 || key == 73) && p2Dead == false){
     direction2 = 0;
   }
-  else if(direction2 != 0 && (key == 107 || key == 75)){
+  else if(direction2 != 0 && (key == 107 || key == 75) && p2Dead == false){
     direction2 = -1;
   }
-  else if(direction2 != 2 && (key == 106 || key == 74)){
+  else if(direction2 != 2 && (key == 106 || key == 74) && p2Dead == false){
     direction2 = 1;
   }
-  else if(direction2 != 1 && (key == 108 || key == 76)){
+  else if(direction2 != 1 && (key == 108 || key == 76) && p2Dead == false){
     direction2 = 2;
   }
-  else if(direction4 != -1 && (key == 123 || key == 91)){
+  else if(direction4 != -1 && (key == 123 || key == 91) && p4Dead == false){
     direction4 = 0;
   }
-  else if(direction4 != 0 && (key == 34 || key == 39)){
+  else if(direction4 != 0 && (key == 34 || key == 39) && p4Dead == false){
     direction4 = -1;
   }
-  else if(direction4 != 2 && (key == 58 || key == 59)){
+  else if(direction4 != 2 && (key == 58 || key == 59) && p4Dead == false){
     direction4 = 1;
   }
-  else if(direction4 != 1 && (key == 124 || key == 92)){
+  else if(direction4 != 1 && (key == 124 || key == 92) && p4Dead == false){
     direction4 = 2;
-  }else if(key == 49 || key == 33){
-    restart();
-    removePlayer2();
-    removePlayer3();
-    removePlayer4();
-    p2Dead = true;
-    p3Dead = true;
-    p4Dead = true;
   }else if(key == 50 || key == 64){
+    gameOver = false;
+    resetPlayers();
     restart();
     removePlayer3();
     removePlayer4();
     p3Dead = true;
     p4Dead = true;
   }else if(key == 51 || key == 35){
+    gameOver = false;
+    resetPlayers();
     restart();
     removePlayer4();
     p4Dead = true;
   }else if(key == 82 || key == 114 || key == 52 || key == 36){
+    gameOver = false;
+    resetPlayers();
+    restart();
+  }
+
+  function resetPlayers() {
     removePlayer1();
     removePlayer2();
     removePlayer3();
     removePlayer4();
-    restart();
   }
+
+  pause();
+  function pause() {
   //Pause functionality
   if(!running){
     running = true;
@@ -449,6 +482,7 @@ window.addEventListener("keypress", function key(){
   //  console.log("start");
     running = false;
   }
+}
   if(running){
     gameMusic.play();
   }
